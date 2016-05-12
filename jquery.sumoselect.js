@@ -60,7 +60,7 @@
                     O.E.wrap('<div class="SumoSelect" tabindex="0">');
                     O.select = O.E.parent();
                     O.caption = $('<span>');
-                    O.CaptionCont = $('<p class="CaptionCont"><label><i></i></label></p>').addClass('SelectBox').attr('style', O.E.attr('style')).prepend(O.caption);
+                    O.CaptionCont = $('<p class="CaptionCont"><label><i class="fa fa-sort-down"></i></label></p>').addClass('SelectBox').attr('style', O.E.attr('style')).prepend(O.caption);
                     O.select.append(O.CaptionCont);
 
                     // default turn off if no multiselect
@@ -406,8 +406,10 @@
                                      if (settings.okCancelInMulti)O._cnbtn();
                                     O.hideOpts();
                                     return;
+								case 16: break;
 
                                 default:
+									if (!O.is_opened) O.setOnOpen();
                                     return; // exit this handler for other keys
                             }
                             e.preventDefault(); // prevent the default action (scroll / move caret)
